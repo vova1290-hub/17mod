@@ -1,4 +1,6 @@
-import {getPageEl, getCenterWrapEl, getTitleEl, getButtonAddEl, getTableEl } from "./components.js"
+import { createAddPage } from "./addPage.js";
+import { navigate } from "./navigate.js";
+import { getPageEl, getCenterWrapEl, getTitleEl, getButtonAddEl, getTableEl, getHeadEl, getTableTbodyEl } from "./components.js"
 
 export function createHomePage(containerEl) {
     const pageEl = getPageEl();
