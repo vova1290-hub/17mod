@@ -1,29 +1,24 @@
-import { createAddPage } from "./addPage.js";
 import { navigate } from "./navigate.js";
+import { renderTable } from "./renderTable.js";
 import { getPageEl, getCenterWrapEl, getTitleEl, getButtonAddEl, getTableEl, getHeadEl, getTableTbodyEl } from "./components.js"
 
 export function createHomePage(containerEl) {
     const pageEl = getPageEl();
-
     const titleWrapEl = getCenterWrapEl();
-
     const titleEl = getTitleEl("Склад");
-
     const buttonAddEl = getButtonAddEl("Добавить запись");
+    const tableEl = getTableEl();
+    const tableTbodyEl = getTableTbodyEl();
 
-    const tableEl = getTableEl()
+    tableEl.append(getHeadEl(), tableTbodyEl);
+    titleWrapEl.append(titleEl, buttonAddEl);
 
-    tableEl.append(getHeadEl());            
-    tableEl.append(getTableTbodyEl());      
+    buttonAddEl.addEventListener("click", function() {
+        navigate("addPage");
+    });
 
-    titleWrapEl.append(titleEl);
-    titleWrapEl.append(buttonAddEl);
+    pageEl.append(titleWrapEl, tableEl);
+    containerEl.append(pageEl);
 
-    buttonAddEl.addEventListener("click", function(){
-        navigate("addPage")
-    })
-
-    pageEl.append(titleWrapEl, tableEl )
-
-    containerEl.append(pageEl)
+    renderTable(tableTbodyEl);
 }

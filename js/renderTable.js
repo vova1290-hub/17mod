@@ -1,13 +1,12 @@
 import {getTableTbodyEl} from "./components.js"
 
-function renderTable() {
-    const products = JSON.parse(localStorage.getItem('products')) || [];
-    const productTableBody = getTableTbodyEl();
+export function renderTable(productTableBody) {
+    const products = JSON.parse(localStorage.getItem("products")) || [];
 
     productTableBody.innerHTML = "";
 
-    products.forEach((product, index) => {
-        const row = document.createElement('tr');
+    products.forEach((product) => {
+        const row = document.createElement("tr");
         row.innerHTML = `
             <td>${product.name}</td>
             <td>${product.shelf}</td>
@@ -19,5 +18,4 @@ function renderTable() {
         `;
         productTableBody.appendChild(row);
     });
-
 }
