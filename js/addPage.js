@@ -1,6 +1,5 @@
 import { getFormEl, getInputEl, getPageEl, getTitleEl, getButtonAddEl } from "./components.js";
-import { navigate } from "./navigate.js";
-import { addProductToLocalStorage } from "./productsLocal.js";
+import { setupValidation } from "./validate.js";
 
 export function createAddPage(containerEl) {
     const pageEl = getPageEl();
@@ -13,20 +12,14 @@ export function createAddPage(containerEl) {
     const dateEl = getInputEl("text", "storage", "дд.мм.гггг");
     const buttonAddEl = getButtonAddEl("Добавить запись");
 
+    nameEl.classList.add("name");
+    shelfEl.classList.add("shelf");
+    weightEl.classList.add("weight");
+    dateEl.classList.add("date");
+
     formEl.append(nameEl, shelfEl, weightEl, dateEl, buttonAddEl);
 
-    formEl.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        addProductToLocalStorage({
-            name: nameEl.value,
-            shelf: shelfEl.value,
-            weight: weightEl.value,
-            date: dateEl.value,
-        });
-
-        navigate("home");
-    });
+    setupValidation(formEl);
 
     pageEl.append(titleEl, formEl);
     containerEl.append(pageEl);
