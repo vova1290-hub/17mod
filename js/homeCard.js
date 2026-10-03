@@ -1,5 +1,5 @@
-import { createAddPage } from "./addPage.js";
 import { navigate } from "./navigate.js";
+import { renderTable } from "./renderTable.js";
 import { getPageEl, getCenterWrapEl, getTitleEl, getButtonAddEl, getTableEl, getHeadEl, getTableTbodyEl } from "./components.js"
 
 export function createHomePage(containerEl) {
@@ -26,4 +26,6 @@ export function createHomePage(containerEl) {
     pageEl.append(titleWrapEl, tableEl )
 
     containerEl.append(pageEl)
+
+    renderTable()
 }

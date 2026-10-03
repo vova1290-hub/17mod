@@ -1,12 +1,12 @@
 import {getTableTbodyEl} from "./components.js"
 
-function renderTable() {
+export function renderTable() {
     const products = JSON.parse(localStorage.getItem('products')) || [];
     const productTableBody = getTableTbodyEl();
 
     productTableBody.innerHTML = "";
 
-    products.forEach((product, index) => {
+    products.forEach((product) => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${product.name}</td>
