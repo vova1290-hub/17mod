@@ -80,6 +80,11 @@ export function getHeadEl() {
 }
 
 export function getTableTbodyEl() {
+    const currentEl = document.getElementById("table-tbody")
+    if (currentEl) {
+        return currentEl
+    }
+
     const tableTbodyEl = document.createElement("tbody")
     tableTbodyEl.id = "table-tbody"
     return tableTbodyEl
