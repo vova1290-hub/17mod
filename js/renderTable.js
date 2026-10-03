@@ -1,4 +1,5 @@
 import {getTableTbodyEl} from "./components.js"
+import {deleteProduct} from "./deleteProduct.js"
 
 export function renderTable(productTableBody) {
     const products = JSON.parse(localStorage.getItem("products")) || [];
@@ -13,7 +14,7 @@ export function renderTable(productTableBody) {
             <td>${product.weight}</td>
             <td>${product.date}</td>
             <td>
-                <button onclick="deleteFilm(${product.id})">Удалить</button>
+                <button onclick="deleteProduct(${product.id})">Удалить</button>
             </td>
         `;
         productTableBody.appendChild(row);
