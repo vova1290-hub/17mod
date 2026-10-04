@@ -13,10 +13,16 @@ export function renderTable(productTableBody) {
             <td>${product.shelf}</td>
             <td>${product.weight}</td>
             <td>${product.date}</td>
-            <td>
-                <button onclick="deleteProduct(${product.id})">Удалить</button>
-            </td>
+            <td></td>
         `;
+
+        const deleteButtonEl = document.createElement("button");
+        deleteButtonEl.textContent = "Удалить";
+        deleteButtonEl.addEventListener("click", function() {
+            deleteProduct(product.id, productTableBody);
+        });
+
+        row.querySelector("td:last-child").append(deleteButtonEl);
         productTableBody.appendChild(row);
     });
 }
