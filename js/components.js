@@ -52,7 +52,7 @@ function getTableEl() {
     return tableEl
 }
 
-function getThEl(text) {
+function getThEl(text, field) {
     const thEl = document.createElement("th");
     thEl.classList.add("table-th");
     thEl.textContent = text;
