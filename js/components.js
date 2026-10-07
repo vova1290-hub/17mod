@@ -85,6 +85,18 @@ function getTableTbodyEl() {
     return tableTbodyEl
 }
 
+function getLoaderEl() {
+    const loaderEl = document.createElement("div")
+    loaderEl.classList.add("loader")
+
+    for (let i = 1; i <= 8; i++) {
+        const divEl = document.createElement("div")
+        loaderEl.append(divEl)
+    }
+
+    return loaderEl
+}
+
 export {
     getPageEl,
     getCenterWrapEl,
@@ -97,5 +109,6 @@ export {
     getThEl,
     getHeadRowEl,
     getHeadEl,
-    getTableTbodyEl
+    getTableTbodyEl,
+    getLoaderEl
 }

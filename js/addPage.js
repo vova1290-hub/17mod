@@ -1,5 +1,5 @@
 import * as components from "./components.js";
-import * as validated from "./validate.js";
+import setupValidation from "./validate.js";
 
 export default function createAddPage(containerEl) {
     const pageEl = components.getPageEl();
@@ -19,7 +19,7 @@ export default function createAddPage(containerEl) {
 
     formEl.append(nameEl, shelfEl, weightEl, dateEl, buttonAddEl);
 
-    validated.setupValidation(formEl);
+    setupValidation(formEl);
 
     pageEl.append(titleEl, formEl);
     containerEl.append(pageEl);

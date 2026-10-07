@@ -1,4 +1,4 @@
-import  navigate  from "./navigate.js";
+import  {navigate}  from "./navigate.js";
 import  renderTable  from "./renderTable.js";
 import * as components from "./components.js"
 

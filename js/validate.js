@@ -1,5 +1,5 @@
 import  addProductToLocalStorage  from "./productsLocal.js";
-import  navigate  from "./navigate.js";
+import  {navigate}  from "./navigate.js";
 
 export default function setupValidation(formEl) {
     const validate = new JustValidate(formEl);

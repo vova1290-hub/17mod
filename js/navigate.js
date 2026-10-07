@@ -1,13 +1,19 @@
-import  createAddPage  from "./addPage.js";
-import  createHomePage  from "./homeCard.js";
+import { getLoaderEl } from "./components.js";
 
-export default function navigate(pageName) {
+export async function navigate(pageName) {
     const appEl = document.getElementById("app");
     appEl.innerHTML = '';
 
+    const loaderEl = getLoaderEl()
+    appEl.append(loaderEl)
+
     if (pageName === "addPage") {
-        createAddPage(appEl);
+        const addPage = await import("./addPage.js")
+        addPage.default(appEl)
+        loaderEl.remove()
     } else {
-        createHomePage(appEl);
+        const homeCard = await import("./homeCard.js")
+        homeCard.default(appEl)
+        loaderEl.remove()
     }
 }
