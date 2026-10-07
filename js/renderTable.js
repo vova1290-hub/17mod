@@ -1,8 +1,18 @@
-import {getTableTbodyEl} from "./components.js"
-import deleteProduct from "./deleteProduct.js"
+import deleteProduct from "./deleteProduct.js";
+import sortProducts from "./sortProducts.js";
 
-export default function renderTable(productTableBody) {
-    const products = JSON.parse(localStorage.getItem("products")) || [];
+let sortField = "";
+
+export default function renderTable(productTableBody, field) {
+    if (field) {
+        sortField = field;
+    }
+
+    let products = JSON.parse(localStorage.getItem("products")) || [];
+
+    if (sortField) {
+        products = sortProducts(products, sortField);
+    }
 
     productTableBody.innerHTML = "";
 

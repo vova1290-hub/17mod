@@ -56,6 +56,11 @@ function getThEl(text) {
     const thEl = document.createElement("th");
     thEl.classList.add("table-th");
     thEl.textContent = text;
+
+    if (field) {
+        thEl.dataset.field = field;
+    }
+
     return thEl;
 }
 
@@ -63,10 +68,10 @@ function getHeadRowEl() {
     const trEl = document.createElement("tr");
     trEl.classList.add("table-head-row");
 
-    trEl.append(getThEl("Название"));
-    trEl.append(getThEl("полка"));
-    trEl.append(getThEl("вес"));
-    trEl.append(getThEl("Время хранения"));
+    trEl.append(getThEl("Название", "name"));
+    trEl.append(getThEl("полка", "shelf"));
+    trEl.append(getThEl("вес", "weight"));
+    trEl.append(getThEl("Время хранения", "date"));
     trEl.append(getThEl(""));
 
     return trEl;

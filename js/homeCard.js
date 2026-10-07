@@ -9,12 +9,21 @@ export default function createHomePage(containerEl) {
     const buttonAddEl = components.getButtonAddEl("Добавить запись");
     const tableEl = components.getTableEl();
     const tableTbodyEl = components.getTableTbodyEl();
+    const headEl = components.getHeadEl();
 
-    tableEl.append(components.getHeadEl(), tableTbodyEl);
+    tableEl.append(headEl, tableTbodyEl);
     titleWrapEl.append(titleEl, buttonAddEl);
 
     buttonAddEl.addEventListener("click", function() {
         navigate("addPage");
+    });
+
+    headEl.addEventListener("click", function(event) {
+        const field = event.target.dataset.field;
+        if (!field) {
+            return;
+        }
+        renderTable(tableTbodyEl, field);
     });
 
     pageEl.append(titleWrapEl, tableEl);
