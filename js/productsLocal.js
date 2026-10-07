@@ -1,6 +1,6 @@
-import {renderTable} from "./renderTable.js"
+import renderTable from "./renderTable.js"
 
-export function addProductToLocalStorage(product) {
+export default function addProductToLocalStorage(product) {
     const products = JSON.parse(localStorage.getItem("products")) || [];
     products.push(product);
     localStorage.setItem("products", JSON.stringify(products));

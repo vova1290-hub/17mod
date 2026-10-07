@@ -1,7 +1,7 @@
 import {getTableTbodyEl} from "./components.js"
-import {deleteProduct} from "./deleteProduct.js"
+import deleteProduct from "./deleteProduct.js"
 
-export function renderTable(productTableBody) {
+export default function renderTable(productTableBody) {
     const products = JSON.parse(localStorage.getItem("products")) || [];
 
     productTableBody.innerHTML = "";

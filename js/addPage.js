@@ -1,16 +1,16 @@
-import { getFormEl, getInputEl, getPageEl, getTitleEl, getButtonAddEl } from "./components.js";
-import { setupValidation } from "./validate.js";
+import * as components from "./components.js";
+import * as validated from "./validate.js";
 
-export function createAddPage(containerEl) {
-    const pageEl = getPageEl();
-    const titleEl = getTitleEl("Добавить запись");
-    const formEl = getFormEl();
+export default function createAddPage(containerEl) {
+    const pageEl = components.getPageEl();
+    const titleEl = components.getTitleEl("Добавить запись");
+    const formEl = components.getFormEl();
 
-    const nameEl = getInputEl("text", "name", "Название");
-    const shelfEl = getInputEl("text", "polka", "Полка");
-    const weightEl = getInputEl("number", "weight", "Вес");
-    const dateEl = getInputEl("text", "storage", "дд.мм.гггг");
-    const buttonAddEl = getButtonAddEl("Добавить запись");
+    const nameEl = components.getInputEl("text", "name", "Название");
+    const shelfEl = components.getInputEl("text", "polka", "Полка");
+    const weightEl = components.getInputEl("number", "weight", "Вес");
+    const dateEl = components.getInputEl("text", "storage", "дд.мм.гггг");
+    const buttonAddEl = components.getButtonAddEl("Добавить запись");
 
     nameEl.classList.add("name");
     shelfEl.classList.add("shelf");
@@ -19,7 +19,7 @@ export function createAddPage(containerEl) {
 
     formEl.append(nameEl, shelfEl, weightEl, dateEl, buttonAddEl);
 
-    setupValidation(formEl);
+    validated.setupValidation(formEl);
 
     pageEl.append(titleEl, formEl);
     containerEl.append(pageEl);

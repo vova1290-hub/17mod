@@ -1,7 +1,7 @@
-import { addProductToLocalStorage } from "./productsLocal.js";
-import { navigate } from "./navigate.js";
+import  addProductToLocalStorage  from "./productsLocal.js";
+import  navigate  from "./navigate.js";
 
-export function setupValidation(formEl) {
+export default function setupValidation(formEl) {
     const validate = new JustValidate(formEl);
 
     validate.addField(".name", [
